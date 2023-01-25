@@ -15,7 +15,7 @@ Compilar el programa (se requiere de un compilador de C):
 `sudo make clean install`
 
 ## Configuración
-Modificar el archivo ***config.def.h*** con las opciones que más guste antes de compilar.
+Modificar el archivo ***config.def.h*** con las opciones que más guste antes de compilar, borrar ***config.h*** y recompilar.
 
 ## Parches añadidos
 - **alpha**                       (modificar la transparencia del fondo)
@@ -26,3 +26,4 @@ Modificar el archivo ***config.def.h*** con las opciones que más guste antes de
 - **scrollback-mouse**            (deslizarse con el ratón)
 - **scrollback-mouse-increment**  (cambiar cuánto se desliza)
 - **scrollback-reflow**           (reajuste de salida al cambiar el tamaño)
+- **copyurl**                     (copia de url que se muestren en terminal)
