@@ -27,3 +27,4 @@ Modificar el archivo ***config.def.h*** con las opciones que más guste antes de
 - **scrollback-mouse-increment**  (cambiar cuánto se desliza)
 - **scrollback-reflow**           (reajuste de salida al cambiar el tamaño)
 - **copyurl**                     (copia de url que se muestren en terminal)
+- **anysize**                     (cambia el tamaño de la ventana en función del de la ventana)
