@@ -12,7 +12,7 @@ Acceder al repositorio:
 
 Compilar el programa (se requiere de un compilador de C):
 
-`sudo make clean install`
+`sudo make install clean`
 
 ## Configuración
 Modificar el archivo ***config.def.h*** con las opciones que más guste antes de compilar, borrar ***config.h*** y recompilar.
