@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Cascadia Code:pixelsize=17:antialias=true:autohint=true";
+static char *font = "Cascadia Mono:pixelsize=17:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -194,9 +194,9 @@ static Shortcut shortcuts[] = {
     { TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
     { TERMMOD,              XK_a,           selpaste,       {.i =  0} },
     { ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ MODKEY,               XK_m,           zoom,           {.f = +1} },
-	{ MODKEY,               XK_n,           zoom,           {.f = -1} },
-	{ MODKEY,               XK_b,           zoomreset,      {.f =  0} },
+	{ ControlMask,          XK_m,           zoom,           {.f = +1} },
+	{ ControlMask,          XK_n,           zoom,           {.f = -1} },
+	{ ControlMask,          XK_b,           zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
     { MODKEY,               XK_c,           clipcopy,       {.i =  0} },
     { MODKEY,               XK_y,           clipcopy,       {.i =  0} },
