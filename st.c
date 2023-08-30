@@ -569,11 +569,11 @@ selnormalize(void)
 	if (sel.type == SEL_RECTANGULAR)
 		return;
 
-  i = tlinelen(TLINE(sel.nb.y));
+	i = tlinelen(TLINE(sel.nb.y));
 	if (sel.nb.x > i)
 		sel.nb.x = i;
-  if (sel.ne.x >= tlinelen(TLINE(sel.ne.y)))
-    sel.ne.x = term.col - 1;
+	if (sel.ne.x >= tlinelen(TLINE(sel.ne.y)))
+		sel.ne.x = term.col - 1;
 }
 
 int
@@ -1813,7 +1813,7 @@ tsetmode(int priv, int set, const int *args, int narg)
 				break;
 			case 1048:
 				if (!allowaltscreen)
-          break;
+					break;
 				tcursor((set) ? CURSOR_SAVE : CURSOR_LOAD);
 				break;
 			case 2004: /* 2004: bracketed paste mode */
@@ -1975,18 +1975,18 @@ csihandle(void)
 			break;
 		case 2: /* all */
 			if (IS_SET(MODE_ALTSCREEN)) {
-  			tclearregion(0, 0, term.col-1, term.row-1, 1);
-  			break;
-      }
+				tclearregion(0, 0, term.col-1, term.row-1, 1);
+				break;
+			}
 			/* vte does this:
 			tscrollup(0, term.row-1, term.row, SCROLL_SAVEHIST); */
-      
+
 			/* alacritty does this: */
 			for (n = term.row-1; n >= 0 && tlinelen(term.line[n]) == 0; n--);
 			if (n >= 0)
 				tscrollup(0, term.row-1, n+1, SCROLL_SAVEHIST);
 			tscrollup(0, term.row-1, term.row-n-1, SCROLL_NOSAVEHIST);
-      break;
+			break;
 		default:
 			goto unknown;
 		}
@@ -2866,7 +2866,7 @@ treflow(int col, int row)
 			ox = 0, oy++, nx = 0;
 		} else/* if (col - nx < len - ox) */ {
 			memcpy(&buf[ny][nx], &line[ox], (col-nx) * sizeof(Glyph));
-    	ox += col - nx;
+			ox += col - nx;
 			buf[ny][col - 1].mode |= ATTR_WRAP;
 			nx = 0;
 		}
@@ -3209,16 +3209,16 @@ copyurl(const Arg *arg) {
 		if (col >= 0)
 			break;
 
-        /* .i = 0 --> botton-up
-         * .i = 1 --> top-down
-         */
-        if (!arg->i) {
-            if (--row < 0)
-                row = term.row - 1;
-        } else {
-            if (++row >= term.row)
-                row = 0;
-        }
+		/* .i = 0 --> botton-up
+		 * .i = 1 --> top-down
+		 */
+		if (!arg->i) {
+			if (--row < 0)
+				row = term.row - 1;
+		} else {
+			if (++row >= term.row)
+				row = 0;
+		}
 
 		colend = term.col;
 	}
