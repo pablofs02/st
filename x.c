@@ -1619,9 +1619,10 @@ xdrawcursor(int cx, int cy, Glyph g, int ox, int oy, Glyph og, Line line, int le
 		if (selected(cx, cy)) {
 			g.fg = defaultfg;
 			g.bg = defaultrcs;
-		} else {
-			g.fg = defaultbg;
-			g.bg = defaultcs;
+		} else if (!(og.mode & ATTR_REVERSE)) {
+			unsigned long col = g.bg;
+			g.bg = g.fg;
+			g.fg = col;
 		}
 		drawcol = dc.col[g.bg];
 	}

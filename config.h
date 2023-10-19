@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Cascadia Mono:pixelsize=17:antialias=true:autohint=true";
+static char *font = "Cascadia Mono:pixelsize=21:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -182,8 +182,7 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod1Mask
-#define TERMMOD (ControlMask|ShiftMask)
+#define ALTKEY Mod1Mask
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -191,24 +190,28 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ TERMMOD,              XK_a,           selpaste,       {.i =  0} },
+	{ ControlMask|ShiftMask,XK_Num_Lock,    numlock,        {.i =  0} },
+	{ ControlMask|ShiftMask,XK_a,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ MODKEY,               XK_m,           zoom,           {.f = +1} },
-	{ MODKEY,               XK_n,           zoom,           {.f = -1} },
-	{ MODKEY,               XK_b,           zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ MODKEY,               XK_c,           clipcopy,       {.i =  0} },
-	{ MODKEY,               XK_y,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ MODKEY,               XK_v,           clippaste,      {.i =  0} },
-	{ MODKEY,               XK_p,           clippaste,      {.i =  0} },
-	{ MODKEY,               XK_h,           kscrollup,      {.i =  1} },
-	{ MODKEY,               XK_l,           kscrolldown,    {.i =  1} },
-	{ MODKEY,               XK_i,           copyurl,        {.i =  0} },
-	{ MODKEY,               XK_o,           opencopied,     {.v = "xdg-open"} },
-	{ MODKEY,               XK_Return,      newterm,        {.i =  0} },
-	{ MODKEY,               XK_Escape,      keyboard_select,{.i =  0} },
+	{ ALTKEY,               XK_m,           zoom,           {.f = +1} },
+	{ ALTKEY,               XK_n,           zoom,           {.f = -1} },
+	{ ALTKEY,               XK_b,           zoomreset,      {.f =  0} },
+	{ ControlMask|ShiftMask,XK_C,           clipcopy,       {.i =  0} },
+	{ ALTKEY,               XK_c,           clipcopy,       {.i =  0} },
+	{ ALTKEY,               XK_y,           clipcopy,       {.i =  0} },
+	{ ControlMask|ShiftMask,XK_V,           clippaste,      {.i =  0} },
+	{ ALTKEY,               XK_v,           clippaste,      {.i =  0} },
+	{ ALTKEY,               XK_p,           clippaste,      {.i =  0} },
+	{ ALTKEY,               XK_h,           kscrollup,      {.i =  mousescrollincrement} },
+	{ ALTKEY,               XK_l,           kscrolldown,    {.i =  mousescrollincrement} },
+	{ ALTKEY|ShiftMask,     XK_H,           kscrollup,      {.i = -1} },
+	{ ALTKEY|ShiftMask,     XK_l,           kscrolldown,    {.i = -1} },
+	{ XK_NO_MOD,            XK_Prior,       kscrollup,      {.i = -1} },
+	{ XK_NO_MOD,            XK_Next,        kscrolldown,    {.i = -1} },
+	{ ALTKEY,               XK_i,           copyurl,        {.i =  0} },
+	{ ALTKEY,               XK_o,           opencopied,     {.v = "xdg-open"} },
+	{ ALTKEY,               XK_Return,      newterm,        {.i =  0} },
+	{ ALTKEY,               XK_Escape,      keyboard_select,{.i =  0} },
 };
 
 /*
